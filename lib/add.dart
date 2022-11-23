@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notebook/main.dart';
+// import 'package:notebook/objectbox.dart';
 import 'package:notebook/todo.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 class Addnote extends StatefulWidget {
   const Addnote({super.key});
@@ -15,7 +17,7 @@ class _AddnoteState extends State<Addnote> {
   String text = "";
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<TodoList>(context);
+    // var provider = Provider.of<TodoList>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add-Some-Note"),
@@ -41,7 +43,10 @@ class _AddnoteState extends State<Addnote> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    provider.addnotes(text);
+                    // provider.addnotes(text);
+                    Todo not = Todo(note: text);
+
+                    objectBox.insertTodo(not);
                   },
                   child: const Text("Add"))
             ])),
