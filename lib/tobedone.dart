@@ -6,7 +6,7 @@ import 'package:notebook/main.dart';
 import 'package:notebook/todo.dart';
 
 class ToBeDone extends StatefulWidget {
-  ToBeDone({super.key});
+  const ToBeDone({super.key});
 
   @override
   State<ToBeDone> createState() => _ToBeDoneState();
@@ -35,18 +35,28 @@ class _ToBeDoneState extends State<ToBeDone> {
               ),
             );
           } else {
-            final todoss = snapshot.data!
-                .where((element) => element.done == false)
-                .toList();
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return Cardd(
-                  note: todoss[index],
-                  Ico: const FaIcon(FontAwesomeIcons.square),
-                );
-              },
-              itemCount: todoss.length,
-            );
+            var todoss = snapshot.data
+                    ?.where((element) => element.done == false)
+                    .toList() ??
+                [];
+            if (todoss.isEmpty) {
+              return const Center(
+                child: Text(
+                  "Empty",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              );
+            } else {
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  return Cardd(
+                    note: todoss[index],
+                    Ico: const FaIcon(FontAwesomeIcons.square),
+                  );
+                },
+                itemCount: todoss.length,
+              );
+            }
           }
         });
   }

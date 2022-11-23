@@ -30,21 +30,33 @@ class _DoneState extends State<Done> {
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(
-              child: Text("Empty"),
+              child: Text(
+                "Empty",
+                style: TextStyle(color: Colors.grey),
+              ),
             );
           } else {
-            final todoss = snapshot.data!
+            final todosss = snapshot.data!
                 .where((element) => element.done == true)
                 .toList();
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return Cardd(
-                  note: todoss[index],
-                  Ico: const FaIcon(FontAwesomeIcons.squareCheck),
-                );
-              },
-              itemCount: todoss.length,
-            );
+            if (todosss.isEmpty) {
+              return const Center(
+                child: Text(
+                  "Empty",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              );
+            } else {
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  return Cardd(
+                    note: todosss[index],
+                    Ico: const FaIcon(FontAwesomeIcons.squareCheck),
+                  );
+                },
+                itemCount: todosss.length,
+              );
+            }
           }
         });
   }

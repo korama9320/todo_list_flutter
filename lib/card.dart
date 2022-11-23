@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ndialog/ndialog.dart';
 import 'package:notebook/main.dart';
 import 'package:notebook/todo.dart';
 // import 'package:provider/provider.dart';
@@ -21,7 +22,23 @@ class Cardd extends StatelessWidget {
       child: Card(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           ListTile(
-            leading: Text(note.note),
+            leading: Container(
+              margin: const EdgeInsets.only(right: 30),
+              child: GestureDetector(
+                child: Text(note.note,
+                    style: const TextStyle(overflow: TextOverflow.ellipsis)),
+                onTap: () {
+                  ZoomDialog(
+                    zoomScale: 5,
+                    child: Container(
+                      color: Colors.white,
+                      padding: const EdgeInsets.all(20),
+                      child: Text(note.note),
+                    ),
+                  ).show(context);
+                },
+              ),
+            ),
             trailing: IconButton(
                 icon: Ico,
                 onPressed: () {

@@ -14,7 +14,7 @@ class Notebook extends StatefulWidget {
 }
 
 class _NotebookState extends State<Notebook> {
-  List<Widget> dose = [ToBeDone(), Done()];
+  List<Widget> dose = [const ToBeDone(), const Done()];
   int index = 0;
   @override
   Widget build(BuildContext context) {
