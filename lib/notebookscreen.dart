@@ -34,10 +34,12 @@ class _NotebookState extends State<Notebook> {
               tabs: const [
                 Padding(
                   padding: EdgeInsets.all(10),
+                  key: Key('first'),
                   child: FaIcon(FontAwesomeIcons.list),
                 ),
                 Padding(
                   padding: EdgeInsets.all(10),
+                  key: Key('second'),
                   child: FaIcon(FontAwesomeIcons.listCheck),
                 )
               ]),

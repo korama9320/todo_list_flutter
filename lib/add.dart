@@ -24,12 +24,13 @@ class _AddNoteState extends State<AddNote> {
         padding: const EdgeInsets.all(40),
         child: Form(
             key: formKey,
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const FaIcon(
-                FontAwesomeIcons.penFancy,
-                size: 100,
-                color: Colors.blueGrey,
+            child: ListView(children: [
+              const Center(
+                child: FaIcon(
+                  FontAwesomeIcons.penFancy,
+                  size: 100,
+                  color: Colors.blueGrey,
+                ),
               ),
               TextFormField(
                 decoration: const InputDecoration(label: Text("Note")),
