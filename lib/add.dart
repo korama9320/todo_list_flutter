@@ -3,15 +3,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notebook/todo.dart';
 import 'package:provider/provider.dart';
 
-class Addnote extends StatefulWidget {
-  const Addnote({super.key});
+class AddNote extends StatefulWidget {
+  const AddNote({super.key});
 
   @override
-  State<Addnote> createState() => _AddnoteState();
+  State<AddNote> createState() => _AddNoteState();
 }
 
-class _AddnoteState extends State<Addnote> {
-  final formkey = GlobalKey<FormState>();
+class _AddNoteState extends State<AddNote> {
+  final formKey = GlobalKey<FormState>();
   String text = "";
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _AddnoteState extends State<Addnote> {
       body: Padding(
         padding: const EdgeInsets.all(40),
         child: Form(
-            key: formkey,
+            key: formKey,
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const FaIcon(
@@ -41,7 +41,7 @@ class _AddnoteState extends State<Addnote> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    provider.addnotes(text);
+                    provider.addNotes(text);
                   },
                   child: const Text("Add"))
             ])),

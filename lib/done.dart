@@ -17,10 +17,10 @@ class _DoneState extends State<Done> {
     var provider = Provider.of<TodoList>(context, listen: true);
 
     return ListView(
-        children: provider.donetodos
-            .map((element) => Cardd(
+        children: provider.done
+            .map((element) => NoteCard(
                   note: element,
-                  Ico: const FaIcon(FontAwesomeIcons.squareCheck),
+                  icon: const FaIcon(FontAwesomeIcons.squareCheck),
                 ))
             .toList());
   }

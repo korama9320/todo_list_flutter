@@ -18,12 +18,12 @@ class _ToBeDoneState extends State<ToBeDone> {
 
     return ListView.builder(
       itemBuilder: (context, index) {
-        return Cardd(
-          note: provider.tobedonetodos[index],
-          Ico: const FaIcon(FontAwesomeIcons.square),
+        return NoteCard(
+          note: provider.toBeDone[index],
+          icon: const FaIcon(FontAwesomeIcons.square),
         );
       },
-      itemCount: provider.tobedonetodos.length,
+      itemCount: provider.toBeDone.length,
     );
   }
 }

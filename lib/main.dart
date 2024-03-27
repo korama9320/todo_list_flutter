@@ -5,10 +5,12 @@ import 'package:notebook/todo.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -23,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         routes: {
           "/": (context) =>
               (const DefaultTabController(length: 2, child: Notebook())),
-          "/add": (context) => (const Addnote())
+          "/add": (context) => (const AddNote())
         },
         debugShowCheckedModeBanner: false,
       ),

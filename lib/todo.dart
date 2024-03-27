@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Todo {
   num id = 0;
@@ -13,32 +10,32 @@ class Todo {
 }
 
 class TodoList extends ChangeNotifier {
-  List<Todo> _todolist = [];
-  void addnotes(String note) {
-    _todolist.add(Todo(note, _todolist.length));
+  List<Todo> _todoList = [];
+  void addNotes(String note) {
+    _todoList.add(Todo(note, _todoList.length));
     notifyListeners();
   }
 
-  List<Todo> get todos {
-    return [..._todolist];
+  List<Todo> get todo {
+    return [..._todoList];
   }
 
-  List<Todo> get donetodos {
-    return _todolist.where((element) => element.done == true).toList();
+  List<Todo> get done {
+    return _todoList.where((element) => element.done == true).toList();
   }
 
-  List<Todo> get tobedonetodos {
-    return _todolist.where((element) => element.done == false).toList();
+  List<Todo> get toBeDone {
+    return _todoList.where((element) => element.done == false).toList();
   }
 
-  void checkitem(Todo note) {
-    int x = _todolist.indexWhere((element) => element.date == note.date);
-    _todolist[x].done = !note.done;
+  void checkItem(Todo note) {
+    int x = _todoList.indexWhere((element) => element.date == note.date);
+    _todoList[x].done = !note.done;
     notifyListeners();
   }
 
-  void removeitem(Todo note) {
-    _todolist.removeWhere((element) => element.date == note.date);
+  void removeItem(Todo note) {
+    _todoList.removeWhere((element) => element.date == note.date);
     notifyListeners();
   }
 }
